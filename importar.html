@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Importar productos</title>
+</head>
+<body>
+    <h1>Importar productos iniciales</h1>
+    <button onclick="importar()">Importar productos</button>
+    <pre id="out"></pre>
+
+    <script>
+        function importar() {
+            fetch("/php/importar.php")
+                .then(r => r.json())
+                .then(d => {
+                    document.getElementById("out").textContent =
+                        JSON.stringify(d, null, 2);
+                });
+        }
+    </script>
+</body>
+</html>
